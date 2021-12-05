@@ -1,0 +1,55 @@
+{
+  "DB_MAIN": {
+    "host": "localhost",
+    "port": "5432",
+    "name": "peatcms",
+    "user": "peatcms",
+    "pass": "your_password",
+    "schema": "public"
+  },
+  "DB_HISTORY": {
+    "host": "localhost",
+    "port": "5432",
+    "name": "peatcms_history",
+    "user": "peatcms",
+    "pass": "your_password",
+    "schema": "public"
+  },
+  "MAIL": {
+    "active": "mailchimp",
+    "mailchimp": {
+      "api_key": "your_mailchimp_api_key",
+      "api_url": "https://mandrillapp.com/api/1.0/"
+    },
+    "sendgrid": {
+      "api_key": "your_sendgrid_api_key",
+      "api_url": "https://api.sendgrid.com/v3/"
+    },
+    "mailgun": {
+      "api_key": "your_mailgun_api_key",
+      "api_url": "https://api.eu.mailgun.net/v3/"
+    }
+  },
+  "integrations": {
+    "instagram": {
+      "app_id": "your_insta_app_id",
+      "secret": "your_insta_secret",
+      "redirect_uri": "https://your_main_install_domain.tld/__action__/instagram/authorize",
+      "media_folder": "/path_to_install/site/htdocs/instagram/",
+      "default_expires": 2500000
+    },
+    "postcode": {
+      "api_url": "https://api.postcode.eu/nl/v1"
+    },
+    "pdfmaker": {
+      "api_url": "https://chrome.browserless.io/pdf",
+      "api_key": "your_browserless_api_key"
+    }
+  },
+  "VERBOSE": true,
+  "logfile": "/path_to_install/logs/bloembraaden_",
+  "uploads": "/path_to_install/site/uploads/",
+  "invoice": "/path_to_install/site/invoice/",
+  "version": "0.9.2",
+  "install": false
+}

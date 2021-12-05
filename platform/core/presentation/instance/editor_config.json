@@ -1,0 +1,63 @@
+{
+  "editor": {
+    "field_order": [
+      "product_id",
+      "serie_id",
+      "brand_id",
+      "title",
+      "slug",
+      "mpn",
+      "sku",
+      "price_from",
+      "price",
+      "message",
+      "in_stock",
+      "for_sale",
+      "vat_category_id",
+      "date_created",
+      "date_updated",
+      "date_popvote",
+      "excerpt",
+      "description",
+      "content",
+      "template_id",
+      "css_class",
+      "online",
+      "variant",
+      "page",
+      "image",
+      "embed",
+      "file"
+    ],
+    "hidden_fields": {
+      "instance_id": true,
+      "taxonomy_id": true,
+      "deleted": true
+    },
+    "page": {
+      "hidden_fields": {
+        "page_id": true
+      }
+    },
+    "image": {
+      "hidden_fields": {
+        "image_id": true,
+        "src_tiny": true,
+        "width_tiny": true,
+        "height_tiny": true,
+        "src_small": true,
+        "width_small": true,
+        "height_small": true,
+        "src_medium": true,
+        "width_medium": true,
+        "height_medium": true,
+        "src_large": true,
+        "width_large": true,
+        "height_large": true,
+        "src_huge": true,
+        "width_huge": true,
+        "height_huge": true
+      }
+    }
+  }
+}
