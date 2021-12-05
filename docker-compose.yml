@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx.dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./site:/var/www/bloembraaden/site
+    depends_on:
+      - db
+      - php
+  db:
+    image: postgres:14
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      # default user will be postgres, connect from your ide using that
+      POSTGRES_PASSWORD: blank
+      PGDATA: /var/lib/postgresql/db
+    volumes:
+      - ./postgresql:/var/lib/postgresql/db
+  php:
+    build:
+      context: .
+      dockerfile: php.dockerfile
+    volumes:
+      - ./site:/var/www/bloembraaden/site
