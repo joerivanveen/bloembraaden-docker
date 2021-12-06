@@ -47,6 +47,8 @@
     }
   },
   "VERBOSE": true,
+  "dbcache": "/to_be_developed",
+  "present": "/presentation_folder_to_be_developed",
   "logfile": "/path_to_install/logs/bloembraaden_",
   "uploads": "/path_to_install/site/uploads/",
   "invoice": "/path_to_install/site/invoice/",

@@ -9,7 +9,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./site:/var/www/bloembraaden/site
+      - ./platform:/var/www/bloembraaden/site
     depends_on:
       - db
       - php
@@ -29,4 +29,4 @@ services:
       context: .
       dockerfile: php.dockerfile
     volumes:
-      - ./site:/var/www/bloembraaden/site
+      - ./platform:/var/www/bloembraaden/site
