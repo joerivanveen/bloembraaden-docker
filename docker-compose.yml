@@ -1,32 +1,66 @@
-version: '3.8'
+version: "3.9"
 
 services:
   nginx:
-    build:
-      context: .
-      dockerfile: nginx.dockerfile
+    image: nginx:1.23-alpine
+    depends_on:
+      - php
+    networks:
+      - backend
+    env_file:
+      - .env.template
+    volumes:
+      - ./bloembraaden-klanten/htdocs:/usr/nginx/htdocs:delegated
+      - ./volumes/static:/mnt/static/htdocs:ro
+      - ./docker/config/nginx:/etc/nginx:ro
+      - ./volumes/certificates:/etc/certificates:ro
+      - ./volumes/logs:/tmp/logs:delegated
     ports:
       - "80:80"
       - "443:443"
-    volumes:
-      - ./platform:/var/www/bloembraaden/site
+
+  php:
+    image: bloembraaden
+    build:
+      context: ./docker
+      dockerfile: images/php-standalone/Dockerfile
     depends_on:
-      - db
-      - php
-  db:
-    image: postgres:14
+      postgres:
+        condition: service_healthy
+    env_file:
+      - .env.template
+    networks:
+      - backend
+    volumes:
+      - ./bloembraaden/bloembraaden:/usr/share/nginx/bloembraaden:delegated
+      - ./bloembraaden-klanten/htdocs:/usr/share/nginx/htdocs:delegated
+      - ./volumes/cache:/tmp/cache:delegated
+      - ./volumes/uploads:/mnt/uploads:delegated
+      - ./volumes/invoice:/mnt/invoice:delegated
+      - ./volumes/static:/mnt/static/htdocs:delegated
+      - ./volumes/logs:/tmp/logs:delegated
+      - ./volumes/certificates:${CERT_DIR}
+
+  postgres:
+    image: postgres
     restart: always
+    networks:
+      - backend
+    env_file:
+      - .env.template
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-    environment:
-      # default user will be postgres, connect from your ide using that
-      POSTGRES_PASSWORD: blank
-      PGDATA: /var/lib/postgresql/db
-    volumes:
-      - ./postgresql:/var/lib/postgresql/db
-  php:
-    build:
-      context: .
-      dockerfile: php.dockerfile
-    volumes:
-      - ./platform:/var/www/bloembraaden/site
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:
+

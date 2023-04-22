@@ -1,0 +1,59 @@
+{
+  "DB_MAIN": {
+    "host": "postgres",
+    "port": "5432",
+    "name": "$POSTGRES_DB",
+    "user": "$POSTGRES_USER",
+    "pass": "$POSTGRES_PASSWORD",
+    "schema": "public"
+  },
+  "DB_HISTORY": {
+    "host": "postgres",
+    "port": "5432",
+    "name": "$POSTGRES_DB_HISTORY",
+    "user": "$POSTGRES_USER",
+    "pass": "$POSTGRES_PASSWORD",
+    "schema": "public"
+  },
+  "MAIL": {
+    "active": "mailchimp",
+    "mailchimp": {
+      "api_key": "$MAILCHIMP_API_KEY",
+      "api_url": "https://mandrillapp.com/api/1.0/"
+    },
+    "sendgrid": {
+      "api_key": "your_api_key",
+      "api_url": "https://api.sendgrid.com/v3/"
+    },
+    "mailgun": {
+      "api_key": "your_api_key",
+      "api_url": "https://api.eu.mailgun.net/v3/"
+    }
+  },
+  "integrations": {
+    "instagram": {
+      "app_id": "$INSTAGRAM_APP_ID",
+      "secret": "$INSTAGRAM_APP_SECRET",
+      "redirect_uri": "https://your_main_domain.tld/__action__/instagram/authorize",
+      "default_expires": 2500000
+    },
+    "postcode": {
+      "api_url": "https://api.postcode.eu/nl/v1",
+      "api_key": "$POSTCODE_API_KEY",
+      "secret": "$POSTCODE_SECRET"
+    },
+    "pdfmaker": {
+      "api_key": "$PDFMAKER_API_KEY",
+      "api_url": "https://chrome.browserless.io/pdf"
+    }
+  },
+  "VERBOSE": true,
+  "dbcache": "/tmp/cache/",
+  "cdnpath": "/mnt/static/htdocs",
+  "cdnroot": "https://static.$MAIN_URL/",
+  "logfile": "/tmp/logs/bloembraaden_",
+  "uploads": "/mnt/uploads/",
+  "invoice": "/mnt/invoice/",
+  "version": "$BLOEMBRAADEN_VERSION",
+  "install": true
+}
