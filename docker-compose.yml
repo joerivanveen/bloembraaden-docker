@@ -10,7 +10,8 @@ services:
     env_file:
       - .env.template
     volumes:
-      - ./bloembraaden-klanten/htdocs:/usr/nginx/htdocs:delegated
+      - ./bloembraaden/bloembraaden:/usr/share/nginx/bloembraaden:delegated
+      - ./bloembraaden-klanten/htdocs:/usr/share/nginx/htdocs:delegated
       - ./volumes/static:/mnt/static/htdocs:ro
       - ./docker/config/nginx:/etc/nginx:ro
       - ./volumes/certificates:/etc/certificates:ro
