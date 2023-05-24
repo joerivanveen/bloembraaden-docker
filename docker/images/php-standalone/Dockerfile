@@ -36,6 +36,10 @@ RUN apk upgrade && \
       zip \
       gd \
       intl \
+      exif \
+    && \
+    docker-php-ext-enable \
+      exif \
     && \
     # Get mkcert
     wget -c https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-linux-arm64 -O mkcert \
