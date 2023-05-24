@@ -7,6 +7,7 @@ WORKDIR ${ROOT_DIR}
 RUN apk upgrade && \
     # Add dependencies
     apk add --no-cache \
+      apk-cron \
       # ext-gd
       freetype-dev \
       libjpeg-turbo-dev \
@@ -18,8 +19,6 @@ RUN apk upgrade && \
       # postgres
       libpq-dev \
       postgresql-client \
-      # Used in enable-modules.sh
-      sudo \
       # Includes envsubst
       gettext \
       # needed for wait-for-it
@@ -53,6 +52,10 @@ COPY ./scripts                            /tmp/scripts
 
 RUN chmod +x /tmp/scripts/*
 RUN chmod 644 config.json
+
+COPY ./config/cron/crontab /etc/crontabs/www-user/crontab
+RUN chmod 644 /etc/crontabs/www-user/crontab && \
+    crontab -u www-data /etc/crontabs/www-user/crontab
 
 ENV ROOT_DIR=${ROOT_DIR}
 

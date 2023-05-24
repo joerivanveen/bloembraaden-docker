@@ -9,5 +9,8 @@ make-certificates
 
 install-bloembraaden
 
+#crond -f
+service cron start
+
 echo "Ready"
 sleep infinity
