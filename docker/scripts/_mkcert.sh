@@ -4,8 +4,6 @@ make-certificates() {
   echo "Make certificates (using mkcert)"
   mkcert -install
   cd $CERT_DIR
-  mkcert -cert-file $MAIN_URL.crt -key-file $MAIN_URL.key $MAIN_URL
-  mkcert -cert-file www.$MAIN_URL.crt -key-file www.$MAIN_URL.key www.$MAIN_URL
-  mkcert -cert-file static.$MAIN_URL.crt -key-file static.$MAIN_URL.key static.$MAIN_URL
+  mkcert -cert-file $MAIN_URL.crt -key-file $MAIN_URL.key *.$MAIN_URL
   openssl dhparam -out ssl-dhparams.pem 2048
 }

@@ -11,6 +11,7 @@ RUN apk upgrade && \
       freetype-dev \
       libjpeg-turbo-dev \
       libpng-dev \
+      libwebp-dev \
       # ext-intl
       icu-dev \
       libzip-dev \
@@ -28,6 +29,7 @@ RUN apk upgrade && \
     && \
     docker-php-ext-configure gd \
       --with-jpeg \
+      --with-webp \
       --with-freetype  \
     && \
     # Install php extensions

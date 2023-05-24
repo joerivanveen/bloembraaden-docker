@@ -13,7 +13,7 @@ install-bloembraaden() {
 	CRON_FILE="/var/spool/cron/crontabs/www-data"
 
 	if [ ! -f $CRON_FILE ]; then
-	   echo "creating cron file"
+	   echo "Creating cron file"
 	   touch $CRON_FILE
 	   /usr/bin/crontab $CRON_FILE
 	fi
