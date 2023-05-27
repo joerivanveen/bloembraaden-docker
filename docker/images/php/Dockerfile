@@ -7,7 +7,7 @@ WORKDIR ${ROOT_DIR}
 RUN apk upgrade && \
     # Add dependencies
     apk add --no-cache \
-      apk-cron \
+      dcron \
       # ext-gd
       freetype-dev \
       libjpeg-turbo-dev \
@@ -52,10 +52,6 @@ COPY ./scripts                            /tmp/scripts
 
 RUN chmod +x /tmp/scripts/*
 RUN chmod 644 config.json
-
-COPY ./config/cron/crontab /etc/crontabs/www-user/crontab
-RUN chmod 644 /etc/crontabs/www-user/crontab && \
-    crontab -u www-data /etc/crontabs/www-user/crontab
 
 ENV ROOT_DIR=${ROOT_DIR}
 

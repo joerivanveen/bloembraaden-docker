@@ -24,7 +24,7 @@ services:
     image: bloembraaden
     build:
       context: ./docker
-      dockerfile: images/php-standalone/Dockerfile
+      dockerfile: images/php/Dockerfile
     depends_on:
       postgres:
         condition: service_healthy
@@ -42,6 +42,25 @@ services:
       - ./volumes/logs:/tmp/logs:delegated
       - ./volumes/certificates:${CERT_DIR}
 
+  cron:
+    image: bloembraaden
+    depends_on:
+      - php
+    networks:
+      - backend
+    entrypoint: /bin/bash
+    command: ["/tmp/scripts/cronstarter.sh"]
+    init: true
+    volumes:
+      - ./bloembraaden/bloembraaden:/usr/share/nginx/bloembraaden:delegated
+      - ./bloembraaden-klanten/htdocs:/usr/share/nginx/htdocs:delegated
+      - ./volumes/cache:/tmp/cache:delegated
+      - ./volumes/uploads:/mnt/uploads:delegated
+      - ./volumes/invoice:/mnt/invoice:delegated
+      - ./volumes/static:/mnt/static/htdocs:delegated
+      - ./volumes/logs:/tmp/logs:delegated
+      - ./docker/config/cron/crontab:/etc/crontabs/www-data
+
   postgres:
     image: postgres
     restart: always
@@ -55,12 +74,9 @@ services:
       timeout: 5s
       retries: 10
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./volumes/postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-
-volumes:
-  postgres_data:
 
 networks:
   backend:

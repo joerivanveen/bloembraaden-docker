@@ -1,0 +1,5 @@
+*/1 * * * * php /usr/share/nginx/bloembraaden/Daemon.php 0 > /dev/null 2>&1
+*/1 * * * * php /usr/share/nginx/bloembraaden/Job.php 1 > /dev/null 2>&1
+*/5 * * * * php /usr/share/nginx/bloembraaden/Job.php 5 > /dev/null 2>&1
+4 * * * * php /usr/share/nginx/bloembraaden/Job.php hourly > /dev/null 2>&1
+0 3 * * * php /usr/share/nginx/bloembraaden/Job.php daily > /dev/null 2>&1
