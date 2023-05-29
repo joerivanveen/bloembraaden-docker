@@ -29,7 +29,7 @@ services:
       postgres:
         condition: service_healthy
     env_file:
-      - .env.template
+      - .env
     networks:
       - backend
     volumes:
@@ -47,6 +47,8 @@ services:
     image: bloembraaden
     depends_on:
       - php
+    env_file:
+      - .env
     networks:
       - backend
     entrypoint: /bin/bash

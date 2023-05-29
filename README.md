@@ -19,7 +19,6 @@ On the server part (core/presentation/instance/name_of_the_instance) you can cur
 - name_of_the_instance.mo (and .po if you wish), the translation file for all generic texts. Use PoEdit to generate it from the code.
 
 ## Config
-The project contains an example config. Rename that to config.json and fill it in with your own values.
-Make sure the folders mentioned in the config are writable by the user your webserver is running as.
+Copy .env.template to .env, and fill in your own values. The config in the docker containers will be filled with the values from your .env file.
 
 For your emailprovider you can choose between mailchimp, mailgun and sendgrid. You may need to tweak the code because currently only Mailchimp is used.
