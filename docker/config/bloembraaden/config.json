@@ -22,11 +22,11 @@
       "api_url": "https://mandrillapp.com/api/1.0/"
     },
     "sendgrid": {
-      "api_key": "your_api_key",
+      "api_key": "$SENDGRID_API_KEY",
       "api_url": "https://api.sendgrid.com/v3/"
     },
     "mailgun": {
-      "api_key": "your_api_key",
+      "api_key": "$MAILGUN_API_KEY",
       "api_url": "https://api.eu.mailgun.net/v3/"
     }
   },
@@ -34,7 +34,7 @@
     "instagram": {
       "app_id": "$INSTAGRAM_APP_ID",
       "secret": "$INSTAGRAM_APP_SECRET",
-      "redirect_uri": "https://your_main_domain.tld/__action__/instagram/authorize",
+      "redirect_uri": "https://$MAIN_URL/__action__/instagram/authorize",
       "default_expires": 2500000
     },
     "postcode": {
@@ -50,7 +50,7 @@
   "VERBOSE": true,
   "dbcache": "/tmp/cache/",
   "cdnpath": "/mnt/static/htdocs/",
-  "cdnroot": "https://static.bloembraaden.local/",
+  "cdnroot": "https://static.$MAIN_URL/",
   "logfile": "/tmp/logs/bloembraaden_",
   "uploads": "/mnt/uploads/",
   "invoice": "/mnt/invoice/",

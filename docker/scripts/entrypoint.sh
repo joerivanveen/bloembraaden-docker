@@ -2,6 +2,8 @@
 
 for script in /tmp/scripts/_*; do source $script; done
 
+configure
+
 # Start php fpm in the background in advance.
 start-php-fpm
 

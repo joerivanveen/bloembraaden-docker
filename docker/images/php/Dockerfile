@@ -47,11 +47,9 @@ RUN apk upgrade && \
       && chmod u+x mkcert \
       && mv mkcert /usr/bin/mkcert
 
-COPY ./config/bloembraaden/config.json    /usr/share/nginx/config.json
 COPY ./scripts                            /tmp/scripts
 
 RUN chmod +x /tmp/scripts/*
-RUN chmod 644 config.json
 
 ENV ROOT_DIR=${ROOT_DIR}
 

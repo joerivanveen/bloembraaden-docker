@@ -35,6 +35,7 @@ services:
     volumes:
       - ./bloembraaden/bloembraaden:/usr/share/nginx/bloembraaden:delegated
       - ./bloembraaden-klanten/htdocs:/usr/share/nginx/htdocs:delegated
+      - ./docker/config/bloembraaden:/tmp/config:ro
       - ./volumes/cache:/tmp/cache:delegated
       - ./volumes/uploads:/mnt/uploads:delegated
       - ./volumes/invoice:/mnt/invoice:delegated
@@ -54,6 +55,7 @@ services:
     volumes:
       - ./bloembraaden/bloembraaden:/usr/share/nginx/bloembraaden:delegated
       - ./bloembraaden-klanten/htdocs:/usr/share/nginx/htdocs:delegated
+      - ./docker/config/bloembraaden:/tmp/config:ro
       - ./volumes/cache:/tmp/cache:delegated
       - ./volumes/uploads:/mnt/uploads:delegated
       - ./volumes/invoice:/mnt/invoice:delegated
