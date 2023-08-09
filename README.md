@@ -25,13 +25,13 @@ This docker image creates a default Bloembraaden environment to begin creating y
 
 Still inside your Bloembraaden root folder `/path/to/bloembraaden` you will create a folder for your own websites.
 This folder must contain a `htdocs` folder with at least an `index.php` file (refer to the [Bloembraaden GitHub repo][bloembraaden-repo]). This will be your own (private) repo where you keep your client websites.
-To start you can download an example.
+To start you can download an example (_NOT YET AVAILABLE contact me_).
 
 1. Create a folder for your client websites / instances:
     ```shell
     mkdir ./bloembraaden-sites
     ```
-2. Create or clone your folders and files, or start with an example (_NOT YET AVAILABLE contact me_):
+2. Create or clone your folders and files, or start with an example:
     ```shell
     gh repo clone joerivanveen/bloembraaden-boilerplate ./bloembraaden-sites/htdocs
     ```
