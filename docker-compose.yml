@@ -11,7 +11,7 @@ services:
       - .env.template
     volumes:
       - ./bloembraaden/bloembraaden:/usr/share/nginx/bloembraaden:delegated
-      - ./bloembraaden-klanten/htdocs:/usr/share/nginx/htdocs:delegated
+      - ./bloembraaden-sites/htdocs:/usr/share/nginx/htdocs:delegated
       - ./volumes/static:/mnt/static/htdocs:ro
       - ./docker/config/nginx:/etc/nginx:ro
       - ./volumes/certificates:/etc/certificates:ro
@@ -34,7 +34,7 @@ services:
       - backend
     volumes:
       - ./bloembraaden/bloembraaden:/usr/share/nginx/bloembraaden:delegated
-      - ./bloembraaden-klanten/htdocs:/usr/share/nginx/htdocs:delegated
+      - ./bloembraaden-sites/htdocs:/usr/share/nginx/htdocs:delegated
       - ./docker/config/bloembraaden:/tmp/config:ro
       - ./volumes/cache:/tmp/cache:delegated
       - ./volumes/uploads:/mnt/uploads:delegated
@@ -56,7 +56,7 @@ services:
     init: true
     volumes:
       - ./bloembraaden/bloembraaden:/usr/share/nginx/bloembraaden:delegated
-      - ./bloembraaden-klanten/htdocs:/usr/share/nginx/htdocs:delegated
+      - ./bloembraaden-sites/htdocs:/usr/share/nginx/htdocs:delegated
       - ./docker/config/bloembraaden:/tmp/config:ro
       - ./volumes/cache:/tmp/cache:delegated
       - ./volumes/uploads:/mnt/uploads:delegated
