@@ -5,7 +5,7 @@ This is the official docker image for [Bloembraaden].
 [Bloembraaden] is an open source cms for digital agencies and designers with a focus on freedom.
 
 ## How to
-Read up on how Bloembraaden works on [its GitHub repo][bloembraaden-repo]].
+Read up on how Bloembraaden works on [its GitHub repo][bloembraaden-repo].
 
 This docker image creates a default Bloembraaden environment to begin creating your own websites.
 
@@ -24,7 +24,7 @@ This docker image creates a default Bloembraaden environment to begin creating y
 ## Your websites
 
 Still inside your Bloembraaden root folder `/path/to/bloembraaden` you will create a folder for your own websites.
-This folder must contain a `htdocs` folder with at least an `index.php` file (refer to the [Bloembraaden GitHub repo][bloembraaden-repo]]). This will be your own (private) repo where you keep your client websites.
+This folder must contain a `htdocs` folder with at least an `index.php` file (refer to the [Bloembraaden GitHub repo][bloembraaden-repo]). This will be your own (private) repo where you keep your client websites.
 To start you can download an example.
 
 1. Create a folder for your client websites / instances:
@@ -96,4 +96,4 @@ This is so you can easily find the logs and the files you uploaded to see what i
 You can safely exclude this folder from your project. It will be recreated (but of course be empty, ie your images will be gone) when you remove it.
 
 [Bloembraaden]: https://bloembraaden.io
-[bloembraaden-repo]]: https://github.com/joerivanveen/bloembraaden
+[bloembraaden-repo]: https://github.com/joerivanveen/bloembraaden
