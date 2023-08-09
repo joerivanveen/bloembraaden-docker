@@ -36,11 +36,11 @@ To start you can download an example.
     gh repo clone joerivanveen/bloembraaden-boilerplate ./bloembraaden-sites/htdocs
     ```
 
-If you want to use a different name than `bloembraaden-sites`, you need to change the references to this folder in docker-compose as well.
+If you want to use a different name than `bloembraaden-sites`, you need to change the references to this folder in `docker-compose.yml` as well (3 times: in the nginx, php and cron containers).
 
 ## Config
 
-Copy .env.template to .env, and fill in your own values. The config.json in the docker containers will be filled with the values from your .env file.
+Copy `.env.template` to `.env`, and fill in your own values. The `config.json` in your ‘cron’ and ‘php’ containers will be filled **once** with the values from your `.env` file.
 
 ```shell
 cp .env.template .env
@@ -82,7 +82,7 @@ The automated ssl certificate is not trusted by default, you need to add it to y
 
 ## Database
 
-You can connect to the postgres database in your ide, for instance PhpStorm
+You can connect to the postgres database in your IDE, for instance PhpStorm
 on `localhost:5432` using the `POSTGRES_USER` and `POSTGRES_PASSWORD` you set up in the `.env` file.
 
 ## Volumes
