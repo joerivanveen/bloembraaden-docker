@@ -55,5 +55,5 @@
   "uploads": "/mnt/uploads/",
   "invoice": "/mnt/invoice/",
   "version": "$BLOEMBRAADEN_VERSION",
-  "install": true
+  "install": $BLOEMBRAADEN_INSTALL
 }

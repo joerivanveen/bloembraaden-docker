@@ -46,7 +46,7 @@ Copy `.env.template` to `.env`, and fill in your own values. The `config.json` i
 cp .env.template .env
 ```
 
-Fill in all env variables in the .env file for a complete working setup.
+Fill in all env variables in the .env file for a complete working setup. Everytime you startup the containers, the config.json will be initialized with the values from the .env file.
 
 ## Run Bloembraaden
 
