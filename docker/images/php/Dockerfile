@@ -1,4 +1,4 @@
-FROM php:8.1-fpm-alpine
+FROM php:8.2-fpm-alpine
 
 ARG ROOT_DIR=/usr/share/nginx
 
@@ -30,6 +30,8 @@ RUN apk upgrade && \
       --with-jpeg \
       --with-webp \
       --with-freetype  \
+    && \
+      pecl install apcu \
     && \
     # Install php extensions
     docker-php-ext-install \
