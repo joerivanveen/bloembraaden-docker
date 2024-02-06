@@ -41,7 +41,7 @@ services:
       - ./volumes/invoice:/mnt/invoice:delegated
       - ./volumes/static:/mnt/static/htdocs:delegated
       - ./volumes/logs:/tmp/logs:delegated
-      - ./volumes/certificates:${CERT_DIR}
+      - ./volumes/certificates:/etc/mkcert
 
   cron:
     image: bloembraaden
