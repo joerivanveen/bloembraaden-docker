@@ -34,6 +34,7 @@ services:
       - ./bloembraaden/bloembraaden:/usr/share/nginx/bloembraaden:delegated
       - ./bloembraaden-sites/htdocs:/usr/share/nginx/htdocs:delegated
       - ./docker/config/bloembraaden:/tmp/config:ro
+      - ./docker/config/opcache/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
       - ./volumes/cache:/tmp/cache:delegated
       - ./volumes/uploads:/mnt/uploads:delegated
       - ./volumes/invoice:/mnt/invoice:delegated
