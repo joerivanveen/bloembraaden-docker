@@ -10,8 +10,9 @@ services:
     volumes:
       - ./bloembraaden/bloembraaden:/usr/share/nginx/bloembraaden:delegated
       - ./bloembraaden-sites/htdocs:/usr/share/nginx/htdocs:delegated
-      - ./volumes/static:/mnt/static/htdocs:ro
       - ./docker/config/nginx:/etc/nginx:ro
+      - ./volumes/static:/mnt/static/htdocs:ro
+      - ./volumes/uploads:/mnt/uploads:ro
       - ./volumes/certificates:/etc/certificates:ro
       - ./volumes/logs:/tmp/logs:delegated
     ports:
