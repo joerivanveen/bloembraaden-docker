@@ -33,7 +33,7 @@
   "integrations": {
     "pdfmaker": {
       "api_key": "$PDFMAKER_API_KEY",
-      "api_url": "https://chrome.browserless.io/pdf"
+      "api_url": "https://production-ams.browserless.io/pdf"
     }
   },
   "newrelic_records_backend": false,
