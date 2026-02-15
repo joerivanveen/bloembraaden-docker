@@ -44,6 +44,7 @@
   "max_memory_limit": "1g",
   "frame_ancestors": "$FRAME_ANCESTORS",
   "VERBOSE": true,
+  "HASHKEY": "$HASHKEY",
   "dbcache": "/tmp/cache/",
   "cdnpath": "/mnt/static/htdocs/",
   "cdnroot": "https://static.$MAIN_URL/",
