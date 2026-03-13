@@ -1,4 +1,4 @@
-FROM php:8.3-fpm-alpine
+FROM php:8.4-fpm-alpine
 
 ARG ROOT_DIR=/usr/share/nginx
 
@@ -48,7 +48,7 @@ RUN apk upgrade && \
       && chmod u+x mkcert \
       && mv mkcert /usr/bin/mkcert
 
-COPY ./scripts                            /tmp/scripts
+COPY ./scripts /tmp/scripts
 
 RUN chmod +x /tmp/scripts/*
 

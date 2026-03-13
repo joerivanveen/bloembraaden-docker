@@ -1,12 +1,12 @@
 services:
   nginx:
-    image: nginx:1.23-alpine
+    image: nginx:1.29-alpine
     depends_on:
       - php
     networks:
       - backend
     env_file:
-      - .env.template
+      - .env
     volumes:
       - ./bloembraaden/bloembraaden:/usr/share/nginx/bloembraaden:delegated
       - ./bloembraaden-sites/htdocs:/usr/share/nginx/htdocs:delegated
@@ -66,12 +66,12 @@ services:
       - ./docker/config/cron/crontab:/etc/crontabs/www-data
 
   postgres:
-    image: postgres
+    image: postgres:17
     restart: always
     networks:
       - backend
     env_file:
-      - .env.template
+      - .env
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
       interval: 1s

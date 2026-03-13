@@ -7,27 +7,16 @@
     "pass": "$POSTGRES_PASSWORD",
     "schema": "public"
   },
-  "DB_HISTORY": {
-    "host": "postgres",
-    "port": "5432",
-    "name": "$POSTGRES_DB_HISTORY",
-    "user": "$POSTGRES_USER",
-    "pass": "$POSTGRES_PASSWORD",
-    "schema": "public"
-  },
   "MAIL": {
     "active": "mailchimp",
     "mailchimp": {
-      "api_key": "$MAILCHIMP_API_KEY",
-      "api_url": "https://mandrillapp.com/api/1.0/"
+      "api_key": "$MAILCHIMP_API_KEY"
     },
     "sendgrid": {
-      "api_key": "$SENDGRID_API_KEY",
-      "api_url": "https://api.sendgrid.com/v3/"
+      "api_key": "$SENDGRID_API_KEY"
     },
     "mailgun": {
-      "api_key": "$MAILGUN_API_KEY",
-      "api_url": "https://api.eu.mailgun.net/v3/"
+      "api_key": "$MAILGUN_API_KEY"
     }
   },
   "ADMIN": {
