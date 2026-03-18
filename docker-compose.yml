@@ -66,12 +66,17 @@ services:
       - ./docker/config/cron/crontab:/etc/crontabs/www-data
 
   postgres:
-    image: postgres:17
+    build:
+      context: ./docker
+      dockerfile: images/postgres/Dockerfile
     restart: always
     networks:
       - backend
     env_file:
       - .env
+    environment:
+      # Optional: Set to 'true' to force certificate regeneration
+      - POSTGRES_SSL_REGENERATE=${POSTGRES_SSL_REGENERATE:-false}
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
       interval: 1s
@@ -79,8 +84,21 @@ services:
       retries: 10
     volumes:
       - ./volumes/postgres_data:/var/lib/postgresql/data
+      - ./volumes/postgres_ssl:/var/lib/postgresql/ssl
     ports:
       - "5432:5432"
+    command:
+      - "postgres"
+      - "-c"
+      - "ssl=on"
+      - "-c"
+      - "ssl_cert_file=/var/lib/postgresql/ssl/server.crt"
+      - "-c"
+      - "ssl_key_file=/var/lib/postgresql/ssl/server.key"
+      - "-c"
+      - "ssl_dh_params_file=/var/lib/postgresql/ssl/dh2048.pem"
+      - "-c"
+      - "ssl_min_protocol_version=TLSv1.2"
 
 networks:
   backend:

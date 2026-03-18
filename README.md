@@ -85,6 +85,8 @@ The automated ssl certificate is not trusted by default, you need to add it to y
 You can connect to the postgres database in your IDE, for instance PhpStorm
 on `localhost:5432` using the `POSTGRES_USER` and `POSTGRES_PASSWORD` you set up in the `.env` file.
 
+The postgres docker image adds ssl certificates to the `./volumes/postgres_ssl` folder so Bloembraaden can use `sslmode=require` in the connection string.
+
 ## Volumes
 
 This docker project will create a `volumes` folder next to its docker folder, with all the volumes that are necessary for and used by Bloembraaden for your convenience.
