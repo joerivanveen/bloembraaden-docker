@@ -1,4 +1,4 @@
-FROM php:8.4-fpm-alpine
+FROM php:8.5-fpm-alpine
 
 ARG ROOT_DIR=/usr/share/nginx
 
@@ -34,7 +34,6 @@ RUN apk upgrade && \
     # Install php extensions
     docker-php-ext-install \
       pdo_pgsql \
-      opcache \
       zip \
       gd \
       intl \
