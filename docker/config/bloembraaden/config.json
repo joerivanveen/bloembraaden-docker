@@ -8,7 +8,7 @@
     "schema": "public"
   },
   "MAIL": {
-    "active": "mailchimp",
+    "active": "postmark",
     "mailchimp": {
       "api_key": "$MAILCHIMP_API_KEY"
     },
@@ -17,6 +17,9 @@
     },
     "mailgun": {
       "api_key": "$MAILGUN_API_KEY"
+    },
+    "postmark": {
+      "api_key": "$POSTMARK_API_KEY"
     }
   },
   "integrations": {
